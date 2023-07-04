@@ -1,0 +1,29 @@
+body, html {
+    height: 100%;
+    display: flex;
+    background-color: #F2F2F2;
+    justify-content: center;
+    align-items: center;
+  }
+
+canvas {
+background-color: white;
+}
+
+#container1 {
+    position: relative;
+}
+
+#container2 {
+    position: absolute;
+    top: 0;
+    left: 421px;
+    padding: 5px;
+    font-size: 24px;
+}
+
+p {
+    white-space: nowrap;
+    text-align: center;
+}
+
