@@ -1,3 +1,10 @@
+@media (max-width: 600px) {
+    canvas {
+        width: 100%;
+      }
+  }
+
+
 body, html {
     height: 100%;
     display: flex;
@@ -26,4 +33,6 @@ p {
     white-space: nowrap;
     text-align: center;
 }
+
+
 
