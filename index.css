@@ -3,6 +3,7 @@ body, html {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
   }
 
 html{
@@ -60,7 +61,7 @@ canvas {
     }
     
     canvas{
-        width: 100%;
+        max-width: 100%;
     }
 
 }
