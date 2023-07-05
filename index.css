@@ -1,38 +1,53 @@
-@media (max-width: 600px) {
-    #container1 {
-        width: 100%;
-      }
-  }
-
-
 body, html {
-    height: 100%;
     display: flex;
-    background-color: #F2F2F2;
     justify-content: center;
     align-items: center;
   }
 
-canvas {
-background-color: white;
+body{
+    height: 569.33px;
+    background-color: white;
 }
 
-#container1 {
-    position: relative;
+html{
+    height: 100%;
+    background-color: black;
 }
 
-#container2 {
-    position: absolute;
-    top: 0;
-    left: 421px;
-    padding: 5px;
-    font-size: 24px;
+/*手機*/
+@media (max-width: 600px) {
+    
 }
 
-p {
-    white-space: nowrap;
-    text-align: center;
+/*電腦*/
+@media (min-width: 601px){}
+    
+    canvas {
+    background-color: white;
+    }
+    
+    #container1 {
+        position: relative;
+    }
+
+    #puzzleImage {
+        position: absolute;
+        top: -69px;
+        left: 0;
+    }
+    
+    #countdown {
+        margin: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+    
 }
+
+
+
 
 
 

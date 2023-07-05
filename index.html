@@ -1,26 +1,16 @@
 <html>
     <head>
-        <meta charset="utf-8"/>
+        <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0"/>
         <title>專題小遊戲-滑塊拼圖</title>
         <link rel="stylesheet" type="text/css" href="./index.css"/>
     </head>
 
-    <style>
-        #puzzleImage {
-            position: absolute;
-            top: -69px;
-            left: 0;
-        }
-    </style>
-
     <body>  
         <div id="container1">
-            <canvas id="background" width="420px" height="420px"></canvas>
-            <img id="puzzleImage" src="./image/下載.jpg" width = "422" height = "69"/>
-            <div id="container2">
-                <p>倒數計時</p>
-                <p id="countdown">03:00</p>
-            </div>
+            <canvas id="background" width="440px" height="440px"></canvas>
+            <img id="puzzleImage" src="./image/下載.jpg" width = "442" height = "69"/>
+            <p id="countdown">03:00</p>
+
             <script src="./puzzle.js"></script>
         </div> 
     </body>
