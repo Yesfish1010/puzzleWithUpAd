@@ -1,55 +1,102 @@
 body, html {
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
   }
 
+html{
+    background-color: black;
+}
+
 body{
-    height: 569.33px;
     background-color: white;
 }
 
-html{
-    height: 100%;
+canvas {
     background-color: black;
 }
 
 /*手機*/
-@media (max-width: 1024px) {
+@media (max-width: 600px) {
+
+    #container1 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100vw;
+        position: relative;
+        background-color: white;
+    }
+
+    #ad {
+        align-self: flex-start;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: auto;
+        max-height: 125px;
+    }
+
+    #container2{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        background-color: white;
+        margin-top: 2px;
+        margin-bottom: 2px;
+    }
     
+    #countdown{
+        font-size: small;
+        margin: 0; 
+        position: relative;
+        top:1px;
+    }
+
 }
 
 /*電腦*/
-@media (min-width: 1025px){
-    
-    canvas {
-    background-color: white;
+@media (min-width: 601px){
+
+    body{
+        height: 569px;
     }
     
     #container1 {
         position: relative;
     }
 
-    #puzzleImage {
+    #ad {
         position: absolute;
-        top: -69px;
+        top: -73px;
         left: 0;
+        width:415px;
+        height: 73px;
+    }
+
+    #container2{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        margin: 2px;
+        position: relative;
     }
     
-    #countdown {
-        margin: 0;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 1;
+    #countdown{
+        font-size: small;
+        margin: 0; 
+        position: relative;
+        top:1px;
     }
-    #background{
-        width: 450px;
-        height: 450px;
-    }
+    
 }
-
-
 
 
 
