@@ -3,7 +3,7 @@ var background = document.getElementById("background");
 var context = background.getContext('2d'); //透過getContext可以取得渲染環境及其繪圖函數；('2d'):2D 繪圖
 
 if (window.innerWidth < 411){
-    var backgroundWidth = window.innerWidth;
+    var backgroundWidth = parseInt(window.innerWidth);
         if ((backgroundWidth-12)%3 != 0){
             var backgroundWidth = backgroundWidth - ((backgroundWidth-12)%3)
         }

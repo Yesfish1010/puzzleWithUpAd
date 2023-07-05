@@ -42,6 +42,7 @@ canvas {
 
     #container2{
         display: flex;
+        width: 100vw;
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -56,6 +57,10 @@ canvas {
         margin: 0; 
         position: relative;
         top:1px;
+    }
+    
+    canvas{
+        width: 100%;
     }
 
 }
