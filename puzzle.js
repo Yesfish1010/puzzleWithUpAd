@@ -2,14 +2,7 @@
 var background = document.getElementById("background");
 var context = background.getContext('2d'); //透過getContext可以取得渲染環境及其繪圖函數；('2d'):2D 繪圖
 
-if (window.innerWidth < 411){
-    var backgroundWidth = parseInt(window.innerWidth);
-        if ((backgroundWidth-12)%3 != 0){
-            var backgroundWidth = backgroundWidth - ((backgroundWidth-12)%3)
-        }
-}else{
-    var backgroundWidth = 411; //背景寬度
-}
+var backgroundWidth = 411;
 var padding = 3; //圖片邊距
 var column = 3; //欄數
 var imageWidth = (backgroundWidth - (padding * (column + 1))) / column; //圖片寬度
