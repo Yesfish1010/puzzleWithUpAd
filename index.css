@@ -57,7 +57,7 @@ canvas {
     }
 
     .image {
-        background-image: url("./image/ad.png");
+        background-image: url("./image/ad.jpg");
         background-size:100% auto;
         background-repeat: no-repeat;
         background-position: center bottom  ;
@@ -111,7 +111,7 @@ canvas {
     .image {
         width: 100%;
         height: 100%;
-        background-image: url("./image/ad.png");
+        background-image: url("./image/ad.jpg");
         background-size: 100% 100%;
         background-repeat: no-repeat;
         background-position: center bottom  ;
