@@ -284,9 +284,6 @@ function updateCountdown() {
     }
 }
 
-function showAlert() {
-    alert("時間到");
-}
 
 
 
