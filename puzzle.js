@@ -14,6 +14,7 @@ var countdownSeconds = 180; //倒數計時的秒數
 var startTime = null;
 var countdownInterval = null;
 var countdownElement = document.getElementById("countdown");
+var remainingSeconds = null;
 
 //初始化加載
 window.onload = function() {
@@ -176,6 +177,12 @@ var checkIfFinish = function() {
         if (index != imageIndexForPosition[index]) { 
             return false;
         }
+    }
+    if(remainingSeconds != 0){
+        context.clearRect(0, 0, background.width, background.height);
+        setupRandomPosition();
+        drawAllImage();
+        return false;
     }
     return true;
 }
