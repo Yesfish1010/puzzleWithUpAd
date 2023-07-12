@@ -18,6 +18,37 @@ canvas {
     background-color: black;
 }
 
+dialog {
+    border: none;
+    box-shadow: 0 2px 6px #ccc;
+    border-radius: 20px;
+    height: 30%;
+    width: 30%;
+    background-image: url('./image/popupTip.png');
+    background-size: cover; /* 根據需要調整圖片大小以填滿容器 */
+    background-position: top; /* 調整圖片在容器中的位置 */
+    text-align: center;
+    display: none;
+    animation: slidein 0.2s ease-in-out; /* 設定淡入動畫效果 */
+    
+}
+
+@keyframes slidein {
+    from {
+      /*transform: translateY(0%);*/
+      margin-top: 120px;
+    }
+  
+    to {
+      /*transform: translateY(80%);*/
+      margin-top: 80px;
+    }
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
 /*手機*/
 @media (max-width: 600px) {
 
