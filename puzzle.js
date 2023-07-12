@@ -299,6 +299,7 @@ function updateCountdown() {
             window.location.href = 'https://www.surveycake.com/s/KO9Lv';
         }, 2000);
     }
+    
 }
 
 
