@@ -10,7 +10,7 @@ var imageWidth = (backgroundWidth - (padding * (column + 1))) / column; //圖片
 var imageIndexForPosition = [0, 1, 2, 3, 4, 5, 6, 7, 8]; //每個位置對應的圖片
 var isFinish = false; // 判斷遊戲是否結束
 
-var countdownSeconds = 180; //倒數計時的秒數
+var countdownSeconds = 3; //倒數計時的秒數
 var startTime = null;
 var countdownInterval = null;
 var countdownElement = document.getElementById("countdown");
@@ -257,6 +257,19 @@ var setupRandomPosition = function() {
     }
 }
 
+// 關於時間結束後的彈出視窗之設定
+function showMyDialog() {
+    var dialog = document.getElementById('myDialog');
+    dialog.style.display = 'block'; // 顯示 <dialog>
+    dialog.showModal(); // 啟用模態對話框
+}
+
+// 在特定條件滿足時隱藏 <dialog>
+function hideMyDialog() {
+    var dialog = document.getElementById('myDialog');
+    dialog.close(); // 隱藏 <dialog>
+}
+
 //計時器的設定
 
 function startCountdown() {
@@ -281,6 +294,10 @@ function updateCountdown() {
     if (remainingSeconds === 0) {
         clearInterval(countdownInterval);
         isFinish = true //玩家不能再移動拼圖
+        showMyDialog(); // 彈出 <dialog>
+        setTimeout(function() {
+            window.location.href = 'https://www.surveycake.com/s/KO9Lv';
+        }, 2000);
     }
 }
 
