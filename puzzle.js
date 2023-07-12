@@ -10,7 +10,7 @@ var imageWidth = (backgroundWidth - (padding * (column + 1))) / column; //圖片
 var imageIndexForPosition = [0, 1, 2, 3, 4, 5, 6, 7, 8]; //每個位置對應的圖片
 var isFinish = false; // 判斷遊戲是否結束
 
-var countdownSeconds = 3; //倒數計時的秒數
+var countdownSeconds = 180; //倒數計時的秒數
 var startTime = null;
 var countdownInterval = null;
 var countdownElement = document.getElementById("countdown");
