@@ -16,6 +16,8 @@ var countdownInterval = null;
 var countdownElement = document.getElementById("countdown");
 var remainingSeconds = null;
 
+var level = 1; //關卡
+
 //初始化加載
 window.onload = function() {
     setupRandomPosition();
@@ -40,8 +42,10 @@ background.onclick = function(e) {
     }
     
     if (checkIfFinish()) {
-        drawImageItem(imageIndexForPosition[lastIndex()], lastIndex()); //將最後一張圖片顯示在圖上
-        isFinish = true; //當拼圖完成後，玩家就不能再移動，更改isFinish的值
+        isFinish = true;
+        darwLastImage();
+        level++;
+        nextLevel();
     }
 };
 
@@ -81,8 +85,66 @@ document.onkeyup = function(event) {
     }
 
     if (checkIfFinish()) {
-        drawImageItem(imageIndexForPosition[lastIndex()], lastIndex());
         isFinish = true;
+        darwLastImage();
+        level++;
+        nextLevel();
+    }
+}
+
+var darwLastImage = function(){
+    switch (level){
+        case 1:
+            drawImageItem(imageIndexForPosition[lastIndex()], lastIndex());
+            break;
+        case 2:
+            drawImageItem2(imageIndexForPosition[lastIndex()], lastIndex());
+            break;
+        case 3:
+            drawImageItem3(imageIndexForPosition[lastIndex()], lastIndex());
+            break;
+        case 4:
+            drawImageItem4(imageIndexForPosition[lastIndex()], lastIndex());
+            break;
+        default:
+            break;
+    }
+}
+
+//判斷要載入第幾關
+var nextLevel = function(){
+
+    if(level == 2){
+        setTimeout(function() {
+            alert("進入下一關!!")
+            context.clearRect(0, 0, background.width, background.height);
+            setupRandomPosition();
+            drawAllImage2();
+            }, 500);
+            isFinish = false;
+    }
+    else if (level == 3){
+        setTimeout(function() {
+            alert("進入下一關!!")
+            context.clearRect(0, 0, background.width, background.height);
+            setupRandomPosition();
+            drawAllImage3();
+            }, 500);
+            isFinish = false;
+    }
+    else if (level == 4){
+        setTimeout(function() {
+            alert("進入下一關!!")
+            context.clearRect(0, 0, background.width, background.height);
+            setupRandomPosition();
+            drawAllImage4();
+            }, 500);
+            isFinish = false;
+    }
+    else{
+        setTimeout(function() {
+            alert("恭喜全部破關🥳\n待遊戲時間結束即進入問卷!");
+            }, 500);
     }
 }
 
@@ -96,12 +158,53 @@ var drawImageItem = function(index, position) { //(圖片索引,圖片位置(0~c
     }
 }
 
+//畫第二關
+var drawImageItem2 = function(index, position) { 
+    var img = new Image(); //用 Image()來建構一個新影像元素
+    img.src = './image/cat_0' + String(index+1) + '.jpg'; //設置路徑
+    img.onload = () => { //箭頭函數 //加載完成後進行繪製
+        var rect = rectForPosition(position);
+        context.drawImage(img, rect[0], rect[1], rect[2], rect[3]); //(要繪製的圖片,左上角的x座標,左上角的y座標,寬度,高度)
+    }
+}
+
+//畫第三關
+var drawImageItem3 = function(index, position) { 
+    var img = new Image(); //用 Image()來建構一個新影像元素
+    img.src = './image/cat2_0' + String(index+1) + '.jpg'; //設置路徑
+    img.onload = () => { //箭頭函數 //加載完成後進行繪製
+        var rect = rectForPosition(position);
+        context.drawImage(img, rect[0], rect[1], rect[2], rect[3]); //(要繪製的圖片,左上角的x座標,左上角的y座標,寬度,高度)
+    }
+}
+
+//畫第四關
+var drawImageItem4 = function(index, position) { 
+    var img = new Image(); //用 Image()來建構一個新影像元素
+    img.src = './image/dog2_0' + String(index+1) + '.jpg'; //設置路徑
+    img.onload = () => { //箭頭函數 //加載完成後進行繪製
+        var rect = rectForPosition(position);
+        context.drawImage(img, rect[0], rect[1], rect[2], rect[3]); //(要繪製的圖片,左上角的x座標,左上角的y座標,寬度,高度)
+    }
+}
+
 //動態刷新圖片 //圖片被滑動到新位置時，要把原本位置的圖刪掉
 var refreshImagePositions = function(origin, target) { //(起始位置,目標位置)
     var originRect = rectForPosition(origin);
     //clearRect設定指定矩形（x, y, width, height)範圍內的所有像素為透明，清除所有先前繪製的內容。
     context.clearRect(originRect[0], originRect[1], originRect[2], originRect[3]);
-    drawImageItem(imageIndexForPosition[target], target);
+    if (level == 1) {
+        drawImageItem(imageIndexForPosition[target], target);
+    }
+    else if (level == 2) {
+        drawImageItem2(imageIndexForPosition[target], target);
+    }
+    else if (level == 3) {
+        drawImageItem3(imageIndexForPosition[target], target);
+    }
+    else if (level == 4) {
+        drawImageItem4(imageIndexForPosition[target], target);
+    }
 }
 
 //繪製所有圖片          
@@ -112,6 +215,36 @@ var drawAllImage = function() {
             continue;
         }
         drawImageItem(index, position);
+    }
+}
+      
+var drawAllImage2 = function() {
+    for (var position = 0; position < column * column; position++) {
+        var index = imageIndexForPosition[position];
+        if (index == lastIndex()) { //最後一張圖片不繪製
+            continue;
+        }
+        drawImageItem2(index, position);
+    }
+}
+
+var drawAllImage3 = function(){
+    for (var position = 0; position < column * column; position++) {
+        var index = imageIndexForPosition[position];
+        if (index == lastIndex()) { //最後一張圖片不繪製
+            continue;
+        }
+        drawImageItem3(index, position);
+    }
+}
+
+var drawAllImage4 = function(){
+    for (var position = 0; position < column * column; position++) {
+        var index = imageIndexForPosition[position];
+        if (index == lastIndex()) { //最後一張圖片不繪製
+            continue;
+        }
+        drawImageItem4(index, position);
     }
 }
 
@@ -177,12 +310,6 @@ var checkIfFinish = function() {
         if (index != imageIndexForPosition[index]) { 
             return false;
         }
-    }
-    if(remainingSeconds != 0){
-        context.clearRect(0, 0, background.width, background.height);
-        setupRandomPosition();
-        drawAllImage();
-        return false;
     }
     return true;
 }
@@ -296,20 +423,8 @@ function updateCountdown() {
         isFinish = true //玩家不能再移動拼圖
         showMyDialog(); // 彈出 <dialog>
         setTimeout(function() {
-            window.location.href = 'https://www.surveycake.com/s/KO9Lv';
+            window.location.href = 'https://www.surveycake.com/s/V26d6';
         }, 2000);
     }
-    
 }
-
-
-
-
-
-
-
-
-
-
-
 
