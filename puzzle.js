@@ -423,7 +423,7 @@ function updateCountdown() {
         isFinish = true //玩家不能再移動拼圖
         showMyDialog(); // 彈出 <dialog>
         setTimeout(function() {
-            window.location.href = 'https://www.surveycake.com/s/V26d6';
+            window.location.href = 'https://www.surveycake.com/s/KO9Lv';
         }, 2000);
     }
 }
