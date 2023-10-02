@@ -116,7 +116,7 @@ var nextLevel = function(){
 
     if(level == 2){
         setTimeout(function() {
-            alert("進入下一關!!")
+            alert("Next Level!!")
             context.clearRect(0, 0, background.width, background.height);
             setupRandomPosition();
             drawAllImage2();
@@ -125,7 +125,7 @@ var nextLevel = function(){
     }
     else if (level == 3){
         setTimeout(function() {
-            alert("進入下一關!!")
+            alert("Next Level!!")
             context.clearRect(0, 0, background.width, background.height);
             setupRandomPosition();
             drawAllImage3();
@@ -134,7 +134,7 @@ var nextLevel = function(){
     }
     else if (level == 4){
         setTimeout(function() {
-            alert("進入下一關!!")
+            alert("Next Level!!")
             context.clearRect(0, 0, background.width, background.height);
             setupRandomPosition();
             drawAllImage4();
@@ -143,7 +143,7 @@ var nextLevel = function(){
     }
     else{
         setTimeout(function() {
-            alert("恭喜全部破關🥳\n待遊戲時間結束即進入問卷!");
+            alert("Congraduation🥳\nWhen time up, you would answer the sub-questionnaire!");
             }, 500);
     }
 }
@@ -423,8 +423,8 @@ function updateCountdown() {
         isFinish = true //玩家不能再移動拼圖
         showMyDialog(); // 彈出 <dialog>
         setTimeout(function() {
-            window.location.href = 'https://www.surveycake.com/s/KO9Lv';
-        }, 2000);
+            window.location.href = 'https://www.surveycake.com/s/0op20';
+        }, 10000);
     }
 }
 
